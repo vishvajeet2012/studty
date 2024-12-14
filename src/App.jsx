@@ -1,20 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import PureFunction from './Function/PureFunction'
-import ClassCompo from './compo and element/ClassCompo'
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
+import PureFunction from './Function/PureFunction';
+import ClassCompo from './compo and element/ClassCompo';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import TodoApp from './Todo';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      {/* <PureFunction/> */}
-      <ClassCompo/>
-    
+      {/* Commented-out components */}
+      {/* <PureFunction /> */}
+      {/* <ClassCompo /> */}
+
+      {/* React Router Setup */}
+
+        <Routes>
+          <Route path="/PureFunction" element={<PureFunction />} />
+          <Route path="/ClassCompo" element={<ClassCompo />} />
+          <Route path="/todo" element={<TodoApp/>}/>
+        </Routes>
+  
     </>
-  )
+  );
 }
 
-export default App
+export default App;
+
