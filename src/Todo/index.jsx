@@ -15,6 +15,10 @@ function TodoApp() {
   function handelInput(e) {
     setValue(e.target.value);
   }
+  function handelDelete(index){
+    setDisplayTask((prevTasks) => prevTasks.filter((_, i) => i !== index));
+
+}
 
   return (
     <>
@@ -44,7 +48,7 @@ function TodoApp() {
             <ul className="taskList mt-4">
               {displayTask.map((value, index) => (
                 <li key={index} className="listItem hover:bg-gray-200 hover:text-black p-2 rounded-md">
-                  {value}  <button  className="bg-red-600 px-4 rounded-md">Del</button>
+                  {value}  <button onClick={()=>handelDelete(index)}  className="bg-red-600 px-4 rounded-md">Del</button>
                 </li>
               ))}
             </ul>
