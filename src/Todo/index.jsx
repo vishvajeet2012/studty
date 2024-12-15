@@ -43,8 +43,8 @@ function TodoApp() {
             </div>
             <ul className="taskList mt-4">
               {displayTask.map((value, index) => (
-                <li key={index} className="listItem hover:bg-gray-200 p-2 rounded-md">
-                  {value}
+                <li key={index} className="listItem hover:bg-gray-200 hover:text-black p-2 rounded-md">
+                  {value}  <button  className="bg-red-600 px-4 rounded-md">Del</button>
                 </li>
               ))}
             </ul>
