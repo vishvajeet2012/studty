@@ -1,49 +1,58 @@
-import { useState } from "react"
+import { useState } from "react";
 
-function TodoApp(){
-           const [value , setValue] =useState("")
-const [displatTask , setDisplayTask] =useState([])
+function TodoApp() {
+  const [value, setValue] = useState("");
+  const [displayTask, setDisplayTask] = useState([]);
 
-    function handelForm(e){
-            e.preventDefault()
-        if(value.trim()){
-            setDisplayTask([...displatTask ,value])
-            setValue('')
-        }
+  function handelForm(e) {
+    e.preventDefault();
+    if (value.trim()) {
+      setDisplayTask([...displayTask, value]);
+      setValue("");
     }
-        function handelInput(e){
-        setValue(e.target.value)
-    
-        }
+  }
 
+  function handelInput(e) {
+    setValue(e.target.value);
+  }
 
-
-    return(
-        <>
-            <form onSubmit={handelForm} >
-                <div className="mainContainer flex justify-center w-full h-screen bg-[#121212]">
-                    <div className="todoBox" >
-                            <div className="headingBox p-2 m-4 border-b-2 border-emerald-600">
-                                <h1 className="ToAppHeading text-5xl">My Todo App</h1>
-                            <p className="text-[#B3B3B3] text-center mt-3">this is my todo Appp created for me </p>
-                            </div>
-                       <div className="action gap-3 flex justify-center space-x-2">
-                            <input value={value} onChange={(e)=>{handelInput(e)}} placeholder="Enter your task" className="text-black placeholder:text-center outline-none border rounded-md " type="text"></input>
-                        <button className="bg-emerald-700 text-white font-semibold  px-3 rounded-md hover:bg-green-500  cursor-help place">Add Task</button>
-             </div> 
-
-                    </div><div className="inputSection">
-                                {displatTask.map((value , index)=>(
-                                        <p>{value}</p>
-                                    ))
-                                    
-                                }
-                                </div></div>
-            </form>
-
-        </>
-    )
+  return (
+    <>
+      <form onSubmit={handelForm}>
+        <div className="mainContainer flex justify-center w-full h-screen bg-[#121212]">
+          <div className="todoBox p-8 rounded-md shadow-md">
+            <div className="headingBox">
+              <h1 className="text-5xl text-white font-bold">My Todo App</h1>
+              <p className="text-gray-400 text-center mt-3">
+                This is my Todo App created for me
+              </p>
+            </div>
+            <div className="action gap-3 flex justify-center space-x-2">
+              <input
+                value={value}
+                onChange={(e) => handelInput(e)}
+                placeholder="Enter your task"
+                className="text-black placeholder-gray-400 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-emerald-500 focus:ring-opacity-50"
+                type="text"
+              />
+              <button
+                className="bg-emerald-600 text-white font-semibold px-3 py-2 rounded-md hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500"
+              >
+                Add Task
+              </button>
+            </div>
+            <ul className="taskList mt-4">
+              {displayTask.map((value, index) => (
+                <li key={index} className="listItem hover:bg-gray-200 p-2 rounded-md">
+                  {value}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </form>
+    </>
+  );
 }
 
-
-export default TodoApp
+export default TodoApp;
