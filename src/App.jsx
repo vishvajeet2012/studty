@@ -6,6 +6,7 @@ import PureFunction from './Function/PureFunction';
 import ClassCompo from './compo and element/ClassCompo';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import TodoApp from './Todo';
+import Navbar from './NavBar';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
       {/* <ClassCompo /> */}
 
       {/* React Router Setup */}
+<Navbar/>
+
 
         <Routes>
           <Route path="/PureFunction" element={<PureFunction />} />
